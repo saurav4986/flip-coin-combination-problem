@@ -77,3 +77,11 @@ do
     doublet_frequency[$combination]=$percentage
     echo "percentage of $combination is ${doublet_frequency[$combination]}%"
 done
+-----------------
+toss=$(( RANDOM % 2 ))
+if(( toss == 0 ))
+then
+    echo "Heads"
+else
+    echo "Tails"
+fi
