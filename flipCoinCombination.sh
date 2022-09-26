@@ -23,7 +23,10 @@ read -p "Enter number of times to flip a combination:" no_of_flips
 
 echo 
 echo "---------------------------SINGLET-COMBINATION---------------------------"
+
 #for singlet there 2^1=2 possible outcomes
+
+
 declare -A singlet_frequency=( 
 
                                 [H]=0
@@ -35,6 +38,23 @@ do
     echo -n "Flip-$flip is "
     (( coin = RANDOM % 2 ))
     case $coin in 
+
+
+
+declare -A singlet_frequency=( 
+
+                            [H]=0
+                            [T]=0
+
+                              )
+echo 
+echo "---------------------------SINGLET-COMBINATION---------------------------"
+for(( flip = 1; flip <= no_of_flips; flip++ ))
+do
+    echo -n "Flip-$flip is "
+    (( toss = RANDOM % 2 ))
+    case $toss in 
+
         0)
             echo "Heads"
             (( singlet_frequency[H]++ ))
@@ -54,7 +74,10 @@ do
 done
 
 echo "---------------------------DOUBLET-COMBINATION---------------------------"
+
 #for doublelet there 2^2=4 possible outcomes
+
+
 declare -A doublet_frequency=( 
 
                                 [HH]=0
@@ -97,11 +120,17 @@ do
     #update count values  with corresponding percentage
     percentage=$(( ${doublet_frequency[$combination]}  * 100 / no_of_flips ))
     doublet_frequency[$combination]=$percentage
+
+-----------
+
     echo "percentage of $combination is ${doublet_frequency[$combination]}%"   
 done
 
 echo "---------------------------TRIPLET-COMBINATION---------------------------"
+
 #for triplet there 2^3=8 possible outcomes
+
+
 declare -A triplet_frequency=( 
                                     [HHH]=0
                                     [HHT]=0
@@ -206,3 +235,15 @@ echo
 
 echo "For All Combinations"
 print_winner total_combinations total_combination_percentages
+----------------
+    echo "percentage of $combination is ${doublet_frequency[$combination]}%"
+done
+-----------------
+toss=$(( RANDOM % 2 ))
+if(( toss == 0 ))
+then
+    echo "Heads"
+else
+    echo "Tails"
+fi
+
