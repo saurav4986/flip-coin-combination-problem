@@ -15,20 +15,6 @@ do
     echo -n "Flip-$flip is "
     (( coin = RANDOM % 2 ))
     case $coin in 
-
-declare -A singlet_frequency=( 
-
-                            [H]=0
-                            [T]=0
-
-                              )
-echo 
-echo "---------------------------SINGLET-COMBINATION---------------------------"
-for(( flip = 1; flip <= no_of_flips; flip++ ))
-do
-    echo -n "Flip-$flip is "
-    (( toss = RANDOM % 2 ))
-    case $toss in 
         0)
             echo "Heads"
             (( singlet_frequency[H]++ ))
@@ -90,7 +76,6 @@ do
     #update count values  with corresponding percentage
     percentage=$(( ${doublet_frequency[$combination]}  * 100 / no_of_flips ))
     doublet_frequency[$combination]=$percentage
------------
     echo "percentage of $combination is ${doublet_frequency[$combination]}%"   
 done
 
@@ -157,14 +142,3 @@ do
     triplet_frequency[$combination]=$percentage
     echo "percentage of $combination is ${triplet_frequency[$combination]}%"   
 done
-----------------
-    echo "percentage of $combination is ${doublet_frequency[$combination]}%"
-done
------------------
-toss=$(( RANDOM % 2 ))
-if(( toss == 0 ))
-then
-    echo "Heads"
-else
-    echo "Tails"
-fi
